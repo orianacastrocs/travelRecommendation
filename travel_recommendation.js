@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // 3. Filtrar según palabra clave
         if (keyword.includes('beach') || keyword.includes('playa')) {
             results = travelData.beaches;
-        } else if (keyword.includes('templo')) {
+        } else if (keyword.includes('templo') || keyword.includes('temple')) {
             results = travelData.temples;
         } else {
             // Buscar por país o ciudad
