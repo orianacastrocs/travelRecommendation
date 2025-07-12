@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const input = document.getElementById('conditionInput');
     const main = document.querySelector('main');
     const clearButton = document.getElementById('btnClear');
+    const originalMainContent = main.innerHTML;
 
     // 2. Buscar cuando se hace clic
     searchButton.addEventListener('click', () => {
@@ -67,9 +68,48 @@ document.addEventListener('DOMContentLoaded', () => {
             main.appendChild(card);
         });
     }
+    
+    clearButton.addEventListener('click', () => {
+    input.value = '';
+    main.innerHTML = originalMainContent;
+    });
 });
 
-clearButton.addEventListener('click', () => {
-    input.value = '';
-    main.innerHTML = '';
-});
+//Nueva función para "Some of the places you can explore..."
+
+fetch('./travel_recommendation_api.json')
+  .then(response => response.json())
+  .then(data => {
+    const allCities = [];
+
+    // extraer solo las ciudades del json cargado
+    data.countries.forEach(country => {
+      country.cities.forEach(city => {
+        allCities.push(city);
+      });
+    });
+
+    // ahora podés mostrar ciudades como antes:
+    let currentIndex = 0;
+
+    function displayCity(city) {
+      const container = document.getElementById("ciudad-container");
+      container.className = "places";
+      container.innerHTML = `
+        <h3>${city.name}</h3>
+        <img src="${city.imageUrl}" alt="${city.name}" width="300">
+        <p style="text-align:left;">${city.description}</p>
+      `;
+    }
+
+    function showNextCity() {
+      displayCity(allCities[currentIndex]);
+      currentIndex = (currentIndex + 1) % allCities.length;
+    }
+
+    showNextCity(); // mostrar la primera
+    setInterval(showNextCity, 7000); // cada 7 segundos
+  })
+  .catch(error => {
+    console.error('Error al cargar el JSON:', error);
+  });
