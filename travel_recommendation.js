@@ -14,7 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const searchButton = document.getElementById('btnSearch');
     const input = document.getElementById('conditionInput');
-    const main = document.getElementById('main');
+    const main = document.querySelector('main');
+    const clearButton = document.getElementById('btnClear');
 
     // 2. Buscar cuando se hace clic
     searchButton.addEventListener('click', () => {
@@ -61,17 +62,14 @@ document.addEventListener('DOMContentLoaded', () => {
             card.innerHTML = `
                 <h3>${place.name}</h3>
                 <img src="${place.imageUrl}" alt="${place.name}" width="300">
-                <p>${place.description}</p>
-                <button class="visit-btn">Visit</button>
+                <p style="text-align:left;">${place.description}</p>
             `;
             main.appendChild(card);
         });
     }
 });
 
-const clearButton = document.getElementById('btnClear');
-
 clearButton.addEventListener('click', () => {
-    input.value = '';        // Limpiar input
-    main.innerHTML = '';     // Borrar resultados
+    input.value = '';
+    main.innerHTML = '';
 });

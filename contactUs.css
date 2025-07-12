@@ -1,8 +1,11 @@
 /* Estilos generales */
-body {
-    text-align: center;
+*{
     margin: 0;
+    padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
     background-image: url('images/city.jpg');
     background-size: cover;
     background-position: center;
@@ -14,10 +17,8 @@ body {
 /* Navbar */
 header {
     background-color: rgba(0, 0, 0, 0.8);
-    padding: 10px 20px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    padding: 10px 10px;
+    position: static;
 }
 
 nav {
@@ -28,7 +29,7 @@ nav {
 
 nav h1 {
     margin: 0;
-    font-size: 28px;
+    font-size: 30px;
 }
 
 nav ul {
@@ -47,28 +48,24 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #a5a5a5;
+    color:  rgb(25, 123, 189);
 }
 
-#main {
-    max-width: 1200px;
-    margin: 10px;
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 30px;
-    border-radius: 10px;
-    font-size: 18px;
-    line-height: 1.6;
+.div1 h1, p{
+    color: black;
+    padding: 10px;
+    margin-top: 10px;
+    text-align: center;
 }
-
 
 #contactForm {
-    display: inline-block;
-    margin: 10px;
+    display: flow-root;
+    margin: 50px;
     background-color: rgba(0, 0, 0, 0.6);
-    padding: 30px;
+    padding: 50px;
     border-radius: 10px;
-    font-size: 18px;
-    line-height: 1.6;
+    font-size: 20px;
+    line-height: 2;
 }
 
 #contactForm input,

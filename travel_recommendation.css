@@ -1,7 +1,11 @@
 /* Estilos generales */
-body {
+*{
     margin: 0;
+    padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
     background-image: url('images/city.jpg');
     background-size: cover;
     background-position: center;
@@ -13,10 +17,8 @@ body {
 /* Navbar */
 header {
     background-color: rgba(0, 0, 0, 0.8);
-    padding: 10px 20px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    padding: 10px 10px;
+    position: static;
 }
 
 nav {
@@ -27,7 +29,7 @@ nav {
 
 nav h1 {
     margin: 0;
-    font-size: 28px;
+    font-size: 30px;
 }
 
 nav ul {
@@ -46,12 +48,12 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #a5a5a5;
+    color:  rgb(25, 123, 189);
 }
 
-#main {
+.bloque {
     max-width: 1200px;
-    margin: 10px;
+    margin: 40px auto;
     background-color: rgba(0, 0, 0, 0.6);
     padding: 30px;
     border-radius: 10px;
@@ -59,6 +61,7 @@ nav ul li a:hover {
     line-height: 1.6;
 }
 
-#main h1{
-    display: table-caption;
+.bloque h1, p{
+    text-align: center;
+    margin-bottom: 20px;
 }
